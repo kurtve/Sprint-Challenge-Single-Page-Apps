@@ -35,6 +35,7 @@ AJAX stands for Asynchronous Javascript and XML, and refers to the protocol for 
 
 
 - [ ] What are `controlled components` in React?
+
 Controlled components are components, particularly form input fields, whose content is set via Javascript and React through the virtual DOM, instead of being set by the browser updating the DOM directly.  This gives the developer explicit control over what appears on the web page.
 
 
