@@ -34,6 +34,15 @@ main {
   padding: 10px;
 }
 
+.location {
+  min-width: 300px;
+}
+
+.episode {
+  min-width: 300px;
+}
+
+
 /*
 .main-img {
   display: block;
