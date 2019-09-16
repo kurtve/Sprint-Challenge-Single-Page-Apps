@@ -1,16 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import useCallAPI from './useCallAPI';
+import EpisodeCard from './EpisodeCard';
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
 
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+export default function EpisodeList() {
 
-  return (
-    <section className="character-list grid-view">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
-  );
+  const epiURL = 'https://rickandmortyapi.com/api/episode';
+
+  const [episodes, updateEpisodes] = useState([]);
+
+  useCallAPI(epiURL, updateEpisodes);
+
+
+
+  if (episodes.length === 0) {
+
+    return (
+      <section className="episode-list grid-view">
+        <h3>Loading ...</h3>
+      </section>
+    );
+
+  } else {
+
+    return (
+      <section className="episode-list grid-view">
+
+        {episodes.map(epi => {
+          return ( <EpisodeCard key={epi.id} name={epi.name} /> );
+        })}
+
+      </section>
+    );
+
+  }
 }
