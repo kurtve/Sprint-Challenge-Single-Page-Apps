@@ -1,16 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import useCallAPI from './useCallAPI';
+import CharacterCard from './CharacterCard';
+
 
 export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
 
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+  const charURL = 'https://rickandmortyapi.com/api/character';
 
-  return (
-    <section className="character-list grid-view">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
-  );
+  const [characters, updateCharacters] = useState([]);
+
+  useCallAPI(charURL, updateCharacters);
+
+
+
+  if (characters.length === 0) {
+
+    return (
+      <section className="character-list grid-view">
+        <h3>Loading ...</h3>
+      </section>
+    );
+
+  } else {
+
+    return (
+      <section className="character-list grid-view">
+
+        {characters.map(char => {
+          return ( <CharacterCard key={char.id} char={char} /> );
+        })}
+
+      </section>
+    );
+
+  }
 }

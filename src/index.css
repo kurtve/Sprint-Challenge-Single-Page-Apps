@@ -27,6 +27,22 @@ main {
 .grid-view div.card.ui {
   margin: 1.25rem;
 }
+
+.card {
+  margin: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.location {
+  min-width: 300px;
+}
+
+.episode {
+  min-width: 300px;
+}
+
+
 /*
 .main-img {
   display: block;
